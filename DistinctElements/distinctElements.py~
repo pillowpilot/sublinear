@@ -3,7 +3,6 @@
 
 """Finding Distinct Elements with a Sublinar Algorithm
 O(N) in time and O(log N) in space.
-
 """
 
 class ProbabilisticCounter(object):
