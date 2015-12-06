@@ -113,8 +113,9 @@ def main():
         counter.count(test)))
 
     for test in range(5):
-        print('Random test #{}: {rtst[0]} vs. {rtst[1]}'.format(
-            test+1, rtst=random_test()))
+        result = random_test()
+        print('Random test #{}: {} vs. {}'.format(
+            test+1, result[0], result[1]))
 
 if __name__ == '__main__':
     main()
