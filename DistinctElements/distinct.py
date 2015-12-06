@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """Finding Distinct Elements with a Sublinar Algorithm
 O(N) in time and O(log N) in space.
-
 """
 
-class ProbabilisticCounter(object):
+import random
+
+class AproximateCounter(object):
     """Sublinear Algorithm to Count Distinc Elements
     """
     def __init__(self):
@@ -60,10 +60,46 @@ class ProbabilisticCounter(object):
                 max_trailing = trailing
         return 2**max_trailing
 
+def random_test(max_value=10000, list_size=1000, seed=None):
+    """Run a pseudo-random test.
+
+    Args:
+        max_value (int): Generate int in [0, max_value].
+        list_size (int): Generate list_size integers.
+        seed (int, str): Param for random.seed().
+
+    Returns:
+         A 2-tuple of int with the count of unique elements
+         and the aproximation of the algorithm.
+
+    Notes:
+        Try with differents combinations of max_value and list_size.
+        max_value = 100 and list_size = 1000
+    """
+    # Set seed
+    random.seed(seed)
+
+    # Generate a pseudo-random list of elements
+    tests = [int(random.uniform(0, max_value))
+             for item in range(list_size)]
+
+    # Count unique elements (deterministic)
+    present = [False for item in range(max_value)]
+    for item in tests:
+        present[item] = True
+    det_unique_counter = present.count(True)
+
+    # Count unique elements (aprox)
+    counter = AproximateCounter()
+    aprox_unique_counter = counter.count(tests)
+
+    # Report
+    return (det_unique_counter, aprox_unique_counter)
+
 def main():
     """Tests
     """
-    counter = ProbabilisticCounter()
+    counter = AproximateCounter()
     tests = list(range(9))
     print('Testing: Private functions...')
     for test in tests:
@@ -75,6 +111,11 @@ def main():
     print('Unique in {}: {}'.format(
         test,
         counter.count(test)))
+
+    for test in range(5):
+        result = random_test()
+        print('Random test #{}: {} vs. {}'.format(
+            test+1, result[0], result[1]))
 
 if __name__ == '__main__':
     main()
