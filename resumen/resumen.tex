@@ -1,0 +1,47 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, spanish]{babel}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+%\usepackage[backend=biber]{biblatex}
+%\bibliography{biblio.bib}
+
+\usepackage{graphicx}
+
+% Asymptotic Notations
+\renewcommand{\O}[1]{$\mathcal{O}(#1)$}
+\renewcommand{\o}[1]{$o(#1)$}
+
+% Definition of Theorem Enviroments
+\newtheorem{definition}{Definición}[part]
+
+\author{Carlos Federico Gaona}
+\title{Resumen de Algoritmos Sublineales}
+\date{}
+
+\begin{document}
+\maketitle
+%TODO Introduction to problem solving
+
+Intuitivamente podemos sugerir que si no disponemos de \O{n} de algún recurso y, sin embargo, necesitamos de al menos \O{n} de el mismo recurso para presentar la solución óptima, entonces no podríamos solucionar el problema. Mas precisamente, no podremos responder de forma \textbf{óptima} y con \textbf{certeza}. Para ello podríamos presentar una solución ``cercana'' a la solución óptima.
+
+% TODO Improve definition of Heuristics, Aproximation and Probabilistic Algorithms.
+La manera de satisfacer esta ``cercanía'' entre soluciones óptimas y soluciones retornadas por un algoritmo es representada como límites estrictamente definidos en los Algoritmos Aproximados, como la respuesta a alguna estrategia en los Algoritmos Heurísticos o como la media de múltiples soluciones en los Algoritmos Probabilísticos.
+
+% TODO Graphics about those three types of algorithms
+
+\part{Conceptos}
+\section{Definición de Algoritmos Sublineales}
+En el sentido clásico los algoritmos presentan como salida la solución óptima al problema que resuelven, sin embargo los algoritmos aproximados presentan como salida una \textbf{solución no necesariamente óptima confinado dentro unos límites} alrededor de la solución óptima. Los algoritmos sublineales presentan como salida una \textbf{solución no necesariamente óptima confinado dentro de unos límites} alrededor de la solución óptima \textbf{con una probabilidad definida}.
+
+Formalmente, son una rama de los $(1+\epsilon, \delta)$\textit{-approximate algorithms} donde utilizan \o{n} de tiempo, espacio o comunicaciones y respectivamente son llamados como \textit{property testing algorithms}, \textit{data stream algorithms} y \textit{communication complexity algorithms}.
+
+De ahora en adelante podremos referirnos a los Algoritmos Sublineales simplemente con AS.
+
+\section{Property Testing}
+La verificación de propiedades, o \textit{property testing} en inglés, sobre una entrada $f$ de tamaño $n$ cuando esta es demasiado grande para ser procesada en \O{n}, ya sea por el valor mismo de $n$ o por las limitaciones inherentes del problema, es una de las aplicaciones de los AS.
+
+\begin{definition}
+  Dado una entrada, definida por la función $f:\mathcal{D} \rightarrow \mathcal{F}$, se dice que es $\epsilon$-cercano de satisfacer una propiedad P si existe una función $f':\mathcal{D} \rightarrow \mathcal{F}$ tal que difiere de $f$ en no más de $\epsilon|\mathcal{D}|$ lugares y satisface P. Si una función no es $\epsilon$-cercano de satisfacer una propiedad P se dice que es $\epsilon$-lejano de satisfacer una propiedad P.
+\end{definition}
+
+\end{document}

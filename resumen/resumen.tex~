@@ -1,0 +1,21 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, spanish]{babel}
+\usepackage{amsmath, amsfonts, amssymb}
+%\usepackage[backend=biber]{biblatex}
+%\bibliography{biblio.bib}
+
+\usepackage{graphicx}
+
+\author{Carlos Federico Gaona}
+\title{Resumen de Algoritmos Sublineales}
+\date{}
+
+\begin{document}
+\maketitle
+\part{Conceptos}
+\section{Definición de Algoritmos Sublineales}
+En el sentido clásico los algoritmos presentan como salida la solución óptima al problema que resuelven, sin embargo los algoritmos aproximados presentan como salida una \textbf{solución no necesariamente óptima confinado dentro unos límites} alrededor de la solución óptima. Los algoritmos sublineales presentan como salida una \textbf{solución no necesariamente óptima confinado dentro de unos límites} alrededor de la solución óptima \textbf{con una probabilidad definida}.
+
+Formalmente, son una rama de los $(1+\epsilon, \delta)$\textit{-approximate algorithms} donde utilizan $o(n)$ de tiempo, espacio o comunicaciones y respectivamente son llamados como \textit{property testing algorithms}, \textit{data stream algorithms} y \textit{communication complexity algorithms}. % TODO Check for little o notation right way in latex
+\end{document}

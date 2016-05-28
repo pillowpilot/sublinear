@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 """Finding Distinct Elements with a Sublinar Algorithm
 O(N) in time and O(log N) in space.
+
+For any integer c > 2, Pr[1/c <= F*/F <= c] >= 1-2/c
+where F* is the output of the Aproximate Algorithm
+and F is the amount of unique elements.
 """
 
 import random
